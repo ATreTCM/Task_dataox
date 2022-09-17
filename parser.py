@@ -122,7 +122,7 @@ async def tasks_data():
         pages_count = int(soup.find("div", class_="pagination").find_all("a")[-3].text)
         tasks = []
 
-        for page in range(1, 80):
+        for page in range(1, pages_count+1):
             task = asyncio.create_task(get_task_data(session, page))
             tasks.append(task)
 
